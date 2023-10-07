@@ -1,26 +1,33 @@
 import QtQuick
+import QtQuick.Window
 
-Image {
+Window {
     id: root
-    source: "images/background.png"
+    visible: true
+    width: background.width
+    height: background.height
     Image {
-        id: pole
-        source: "images/pole.png"
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-    }
-    Image {
-        id: wheel
-        source: "images/pinwheel.png"
-        anchors.centerIn: parent
-        Behavior on rotation {
-            NumberAnimation {
-                duration: 250
+        id: background
+        source: "images/background.png"
+        Image {
+            id: pole
+            source: "images/pole.png"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+        }
+        Image {
+            id: wheel
+            source: "images/pinwheel.png"
+            anchors.centerIn: parent
+            Behavior on rotation {
+                NumberAnimation {
+                    duration: 250
+                }
             }
         }
-    }
-    MouseArea {
-        anchors.fill: parent
-        onClicked: wheel.rotation += 90
+        MouseArea {
+            anchors.fill: parent
+            onClicked: wheel.rotation += 90
+        }
     }
 }
