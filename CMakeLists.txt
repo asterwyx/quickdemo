@@ -16,7 +16,7 @@ qt_add_qml_module(appquickdemo
     URI quickdemo
     VERSION 1.0
     QML_FILES Main.qml
-    RESOURCES images.qrc
+    RESOURCES images # directly declare that we want images as resources, qt will help handle the qrc
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
